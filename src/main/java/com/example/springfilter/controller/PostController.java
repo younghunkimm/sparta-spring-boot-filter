@@ -14,19 +14,25 @@ public class PostController {
     public PostResponseDto create(PostCreateRequestDto request) {
         // 로그인 여부 확인 로직
 
+        // 생성 로직
         Post savedPost = new Post(request.getTitle(), request.getContents());
 
         return new PostResponseDto(savedPost.getTitle(), savedPost.getContents());
     }
 
     @PutMapping("/{postId}")
-    public void update(PostUpdateRequestDto request) {
+    public void update(
+            @PathVariable Long postId,
+            PostUpdateRequestDto request
+    ) {
         // 로그인 여부 확인 로직
+        // 수정 로직
     }
 
     @DeleteMapping("/{postId}")
-    public void delete() {
+    public void delete(@PathVariable Long postId) {
         // 로그인 여부 확인 로직
+        // 삭제 로직
     }
 
 }
